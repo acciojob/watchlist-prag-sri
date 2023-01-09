@@ -1,4 +1,6 @@
 package com.driver;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -20,5 +22,15 @@ public class DirectorRepository {
                 return d;
         }
         return null;
+    }
+
+    String deleteDirectorByName(String name) {
+        directorDb.remove(name);
+        return "Director deleted successfully!";
+    }
+
+    public String deleteAllDirectors(){
+        directorDb.clear();
+        return "All directors deleted successfully!";
     }
 }

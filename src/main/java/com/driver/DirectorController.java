@@ -23,4 +23,16 @@ public class DirectorController {
             return new ResponseEntity<>(director,HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(director,HttpStatus.OK);
     }
+
+    @DeleteMapping("/movies/delete-director-by-name")
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam("name")String name){
+        String result= directorService.deleteDirectorByName(name);
+        return new ResponseEntity<>(result,HttpStatus.OK);
+    }
+
+    @DeleteMapping("/movies/delete-all-directors")
+    public ResponseEntity<String> deleteAllDirectors(){
+        String result= directorService.deleteAllDirectors();
+        return new ResponseEntity<>(result,HttpStatus.OK);
+    }
 }
